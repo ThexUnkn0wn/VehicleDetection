@@ -1,8 +1,6 @@
-//C
-#include <stdio.h>
 //C++
 #include <iostream>
-#include <sstream>
+#include <memory>
 
 #ifdef WINDOWS
 #include<conio.h>           // it may be necessary to change or remove this line if not using Windows
@@ -22,12 +20,12 @@ void help()
 	std::cout
 		<< "--------------------------------------------------------------------------" << std::endl
 		<< "This program shows how to use background subtraction methods provided by " << std::endl
-		<< " OpenCV. You can process both videos (-vid) and images (-img)." << std::endl
+		<< " OpenCV. You can process both videos (-vid)." << std::endl
 		<< std::endl
 		<< "Usage:" << std::endl
-		<< "./bs {-vid <video filename>|-img <image filename>}" << std::endl
+		<< "./bs {-vid <video filename>}" << std::endl
 		<< "for example: ./bs -vid video.avi" << std::endl
-		<< "or: ./bs -img /data/images/1.png" << std::endl
+		//<< "or: ./bs -img /data/images/1.png" << std::endl
 		<< "--------------------------------------------------------------------------" << std::endl
 		<< std::endl;
 }
@@ -50,10 +48,11 @@ int main(int argc, char* argv[])
 		//processVideo(argv[2]);
 		vehicleDetection->processVideo(argv[2]);
 	}
-	else if (strcmp(argv[1], "-img") == 0) {
-		//input data coming from a sequence of images
-		//processImages(argv[2]);
-	}
+	// not implemented
+	//else if (strcmp(argv[1], "-img") == 0) {
+	//	//input data coming from a sequence of images
+	//	//processImages(argv[2]);
+	//}
 	else {
 		//error in reading input parameters
 		std::cerr << "Please, check the input parameters." << std::endl;
